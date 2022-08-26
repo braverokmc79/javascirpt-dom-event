@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>5.이벤트 핸들러(Event Handler)</title>
+</head>
+<body>
+ <div id="box"
+style="
+width: 500px; 
+height:500px; 
+border: 2px solid red;
+position:relative;
+">
+<div id="circle" 
+    style="
+    width:10px;
+    height: 10px; 
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    "></div>
+ </div>    
+<script>
+//mousemove Event
+const box =document.getElementById("box");
+const circle=document.getElementById("circle");
+box.addEventListener("mousemove", (event)=>{
+    //console.log(event);
+    circle.style.top=`${event.clientY}px`;
+    circle.style.left=`${event.clientX}px`;
+});
+
+</script>
+</body>
+</html>

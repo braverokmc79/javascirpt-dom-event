@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>5.이벤트 핸들러(Event Handler)</title>
+</head>
+<body>
+    <button id="btn">클릭</button>
+    <input id="txt"  type="text" />
+    <br>
+    <input id="txt2" type="text" />
+<script>
+    function sayHello(){
+        alert("Hello");
+    }
+    const el =document.getElementById("btn");
+    el.addEventListener("dblclick", sayHello);
+
+    const input=document.getElementById("txt");
+    input.addEventListener("keyup", (event)=>{
+        console.log(event.key);
+        console.log(event.target.value);
+    });
+
+
+    const input2=document.getElementById("txt2");
+    input2.addEventListener("focus", ()=>{
+        input2.style.backgroundColor='rgba(255,0,0,0.2)';
+    });
+    input2.addEventListener("blur", ()=>{
+        input2.style.backgroundColor=null;
+    });
+
+</script>
+</body>
+</html>

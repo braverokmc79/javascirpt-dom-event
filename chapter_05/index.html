@@ -7,8 +7,38 @@
     <title>5.이벤트 핸들러(Event Handler)</title>
 </head>
 <body>
+    <button onclick="alert('click')">클릭1</button>
+    <button onclick="sayHello()">클릭2</button>
+    <button id="btn">클릭3</button>
+    <button id="btn2">클릭4</button>
+
+    <input type='button' id='delete_event' value='이벤트 삭제' />
 <script>
+    function sayHello(){
+        alert("Hello");
+    }
+    const el=document.getElementById("btn");
+    el.onclick=sayHello;
+
+    const el2=document.getElementById("btn2");
     
+    //1. 이벤트 추가 - addEventListener
+    //el2.addEventListener("click", sayHello);
+    el2.addEventListener("click", ()=>{
+        alert("Hi");
+    });
+
+
+    document.addEventListener("DOMContentLoaded",()=>{
+        document.body.style.backgroundColor="red";
+    });
+
+
+    //2.이벤트 삭제 - removeEventListener(type ,eventListener);
+    // - type : 삭제할 이벤트 타입
+    // - eventListener : 삭제할 이벤트 리스터 
+    //(addEventListener()의 2번째 파라미터로 전달된 함수)
+
 </script>    
 </body>
 </html>
