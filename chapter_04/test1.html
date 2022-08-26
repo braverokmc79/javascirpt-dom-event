@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.CSS style, class 제어</title>
+<style>
+    *{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        border: 4px solid #000;
+    }
+    .bg-red{
+        background-color: #f00;
+    }
+    .bg-green{
+        background-color: #0f0f;
+    }
+    .bg-blue{
+        background-color: #00f;
+    }
+    .txt-white{
+        color:#fff;
+    }
+    .txt-yellow{
+        color: #ff0;
+    }
+    .txt-pink{
+        color: pink;
+    }
+</style>    
+</head>
+<body>
+    <div id="box" class="box bg-red">Box</div>
+    <ul id="myColor">
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+<script>
+    // box.className="bg-red";
+    // box.className="bg-blue";
+    //console.log(box.classList);
+
+    //클래스 추가
+    box.classList.add("txt-white", "bg-blue");
+
+
+    //클래스 변경
+    box.classList.replace("bg-blue", "bg-green");
+
+    //토글
+    setInterval(()=>{
+        box.classList.toggle("bg-green");
+    }, 1000);
+
+    //const box=document.getElementById("box");
+    //const color=document.getElementById("color");
+    //아이값은 변수 선언없이 다이렉트 가능
+    myColor.onclick=function(e){
+        const target =e.target;
+        console.log(target.tagName);
+        //if(target.tagName!=="LI") return;
+        target.classList.toggle("txt-pink");
+    }
+
+
+
+</script>    
+</body>
+</html>

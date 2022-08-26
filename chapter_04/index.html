@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.CSS style, class 제어</title>
+    <title>4.CSS style, class 제어</title> 
 </head>
 <body>
+    <div id="box">Box</div>
+    <ul id="color">
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
 <script>
-    
+    const box=document.getElementById("box");
+
+    box.style.backgroundColor='red';
+    box.style.color="#fff";
+    box.style.width="100px";
+    box.style.height="100px";
+    box.style["margin-left"]="30px";
+
+    box.style.border="10px solid #000";
 </script>    
 </body>
 </html>
