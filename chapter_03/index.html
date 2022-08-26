@@ -7,8 +7,39 @@
     <title>3.노드 생성, 추가, 복제, 삭제</title>
 </head>
 <body>
+<h1>Welcome</h1>
+<h2>World</h2>
+<ul id="color">
+    <li id="red">Red</li>
+    <li id="blue">Blue</li>
+    <li id="green">Green</li>
+</ul>
+<h3>A</h3>
+
 <script>
-    
+    const newLi=document.createElement("li");
+    const newText=document.createTextNode("pink");
+    newLi.appendChild(newText);
+    const ul=document.getElementById("color");
+    ul.appendChild(newLi);
+
+    const newLi2=document.createElement("li");
+    const newText2=document.createTextNode("black");
+    newLi2.appendChild(newText2);
+    //(method) Node.insertBefore<HTMLLIElement>(node: HTMLLIElement, child: Node): HTMLLIElement
+    ul.insertBefore(newLi2, red);
+
+    ul.appendChild(red);
+
+    const newBlack=newLi2.cloneNode(true);
+    ul.appendChild(newBlack);
+
+
+    //삭제
+    ul.removeChild(newBlack);
+    ul.removeChild(ul.firstElementChild);
+    ul.removeChild(ul.lastElementChild);
+
 </script>    
 </body>
 </html>
