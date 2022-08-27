@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.이벤트 버블링, 이벤트 위임</title>
+<style>
+    div, ul, li{
+        border:5px solid #000;
+        padding: 50px;
+        font-size: 2.2rem;
+        font-weight: 600;    
+    }
+    #box{
+        background-color: green;
+    }
+    #list{
+        background-color: orange;
+    }
+    #list li{
+        cursor: pointer;        
+    }
+    #red{
+        background-color: red;
+    }
+   #blue{
+        background-color: blue;
+    }
+    #green{
+        background-color: green;
+    }
+    #pink{
+        background-color: pink;
+    }  
+    #list .on{
+          background-color: yellow;
+    }  
+</style>    
+</head>
+<body>
+<div id="box">
+    <ul id="list">
+        <li id="red" class="on"><a href="#">Red</a></li>
+        <li id="blue"><a href="#">Blue</a></li>
+        <li id="green"><a href="#">Green</a></li>
+        <li id="pink"><a href="#">Pink</a></li>
+    </ul>
+</div>
+<script>
+const lit=document.getElementById("list");
+const colors=lit.children;
+
+function clickHandler(event){    
+    //console.log("target : ", event.target);
+    //currentTarget 여기서 ul 을 가리킨다.
+    //console.log("currentTarget:", event.currentTarget);
+    let target=event.target;    
+    if(target.tagName==="A"){   
+        event.preventDefault();    
+        target=target.parentElement;  //a  인경우 부모인 li 로  변경
+    }else if(target===event.currentTarget){
+        //여기서 ul과 같다면 리턴
+        return;
+    }
+    
+
+    for(c of colors){
+        c.classList.remove("on");
+    }
+
+    target.classList.add("on");
+}
+
+// document.getElementById("red").addEventListener("click", clickHandler);
+// document.getElementById("blue").addEventListener("click", clickHandler);
+// document.getElementById("green").addEventListener("click", clickHandler);
+// document.getElementById("pink").addEventListener("click", clickHandler);
+
+
+
+// const lis=document.querySelectorAll("li");
+// for(li of lis){
+//     li.addEventListener("click", clickHandler);
+// }
+
+
+//이벤트 위임 
+document.getElementById("list").addEventListener("click", clickHandler);
+
+
+
+
+</script>    
+</body>
+</html>

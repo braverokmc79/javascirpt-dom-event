@@ -21,31 +21,44 @@
     #color{
         background-color: yellow;
     }
+    #txt{
+        width: 100%;
+        height: 50px;
+    }
 </style>    
 </head>
 <body>
 <div id="box">
-    <ul id="list">
-        <li id="color">Red</li>
-    </ul>
+    <input id="txt" type="text" />
 </div>
 <script>
 const box=document.getElementById("box");
-const lit=document.getElementById("list");
-const color=document.getElementById("color");
+const txt=document.getElementById("txt");
 
-document.body.addEventListener("click",()=>{
-    console.log("1.body");
+document.body.addEventListener("focusin",()=>{
+    console.log("focus -1.body");
 })
-box.addEventListener("click",()=>{
-    console.log("2.div");
+box.addEventListener("focusin",()=>{
+    console.log("focus - 2.div");
 })
-lit.addEventListener("click",()=>{
-    console.log("3. ul");
+txt.addEventListener("focusin",(event)=>{
+    event.stopPropagation();
+    console.log("focus- 3.input");
 })
-color.addEventListener("click",()=>{
-    console.log("4. li");
+
+
+
+document.body.addEventListener("blur",()=>{
+    console.log("blur -1.body");
 })
+box.addEventListener("blur",()=>{
+    console.log("blur - 2.div");
+})
+txt.addEventListener("blur",()=>{
+    console.log("blur- 3.input");
+})
+
+
 
 </script>    
 </body>
